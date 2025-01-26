@@ -1,4 +1,4 @@
-# DAT102 Skoleprosjekter
+# DAT102 Oblig Oppgaver
 
 Velkommen til dette repositoryet som inneholder skoleprosjekter relatert til faget DAT102 (Datastrukturer og algoritmer). Her samles kode, oppgaver og dokumentasjon knyttet til arbeidet i faget.
 
