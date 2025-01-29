@@ -49,10 +49,11 @@ public class Meny {
     public void start() {
         boolean close = false;
         do {
-            System.out.println("1. Søk etter tittel");
-            System.out.println("2. Søk etter produsent");
-            System.out.println("3. Skriv ut statistikk");
-            System.out.println("4. Avslutt");
+            System.out.println("1. Legg til ny film");
+            System.out.println("2. Søk etter tittel");
+            System.out.println("3. Søk etter produsent");
+            System.out.println("4. Skriv ut statistikk");
+            System.out.println("5. Avslutt");
             System.out.println("\nVelg et alternativ: ");
 
             Scanner scanner = new Scanner(System.in);
@@ -61,6 +62,21 @@ public class Meny {
 
             switch (valg) {
                 case 1:
+                    System.out.println("\nSkriv inn filmnr: ");
+                    int filmnr = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("Skriv inn filmskaper: ");
+                    String filmskaper = scanner.nextLine();
+                    System.out.println("Skriv inn filmnavn: ");
+                    String filmnavn = scanner.nextLine();
+                    System.out.println("Skriv inn sjanger: ");
+                    Sjanger sjanger = Sjanger.valueOf(scanner.nextLine().toUpperCase());
+                    System.out.println("Skriv inn filmselskap: ");
+                    String filmselskap = scanner.nextLine();
+                    Film nyFilm = tekstgr.lesFilm(filmnr, filmskaper, filmnavn, sjanger, filmselskap);
+                    filmarkiv.leggTilFilm(nyFilm);
+                    break;
+                case 2:
                     System.out.println("\nSkriv inn delstrengen du vil søke etter: ");
                     String delstreng = scanner.nextLine();
                     tekstgr.skrivUtFilmDelstrengITittel(filmarkiv, delstreng);

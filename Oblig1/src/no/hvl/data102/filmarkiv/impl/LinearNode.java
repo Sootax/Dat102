@@ -8,4 +8,17 @@ public class LinearNode<T> {
         this.data = data;
         this.neste = null;
     }
+
+    public T[] toArray(T[] data) {
+        LinearNode<T> current = this;
+        int i = 0;
+
+        while (current != null) {
+            data[i] = current.data;
+            current = current.neste;
+            i++;
+        }
+
+        return data;
+    }
 }

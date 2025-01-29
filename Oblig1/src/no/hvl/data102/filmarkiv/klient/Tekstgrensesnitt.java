@@ -5,14 +5,14 @@ import no.hvl.data102.filmarkiv.impl.Film;
 import no.hvl.data102.filmarkiv.impl.Sjanger;
 
 public class Tekstgrensesnitt {
-    public Film lesFilm() {
-        // TODO: Implement this method?
-        // Funksjonen skal returnere et Film-objekt basert på input fra brukeren.
-        // Vi har bare funksjoner for delsøk i tittel og produsent.
-        // Vi kan lage flere, men dette blir utenfor oppgavens rammer.
-        // Grunnet tilgjengelige metoder, er det svært sansynlig at resultate ikke blir unikt.
-        // Slik som start metoden i Meny-klassen er implementert, ser jeg ikke noe bruk for denne metoden.
-        return null;
+    public Film lesFilm(int filmnr, String filmskaper, String filmnavn, Sjanger sjanger, String filmselskap) {
+        System.out.println("La til film:");
+        System.out.println("Filmnr: " + filmnr);
+        System.out.println("Filmskaper: " + filmskaper);
+        System.out.println("Filmnavn: " + filmnavn);
+        System.out.println("Sjanger: " + sjanger);
+        System.out.println("Filmselskap: " + filmselskap + "\n");
+        return new Film(filmnr, filmskaper, filmnavn, sjanger, filmselskap);
     }
 
     public void skrivUtFilm(Film film) {

@@ -59,42 +59,46 @@ public class Filmarkiv2 implements FilmarkivADT {
 
     @Override
     public Film[] soekTittel(String delstreng) {
-        Film[] filmerMedDelstreng = new Film[antall];
-        int antall = 0;
+        LinearNode<Film> filmerMedDelstreng = new LinearNode<>(null);
         LinearNode<Film> current = start;
+
+        int antall = 0;
 
         while (current != null) {
             String filmnavn = current.data.getFilmnavn().toLowerCase();
 
             if (filmnavn.contains(delstreng.toLowerCase())) {
-                filmerMedDelstreng[antall] = current.data;
+                LinearNode<Film> newNode = new LinearNode<>(current.data);
+                newNode.neste = filmerMedDelstreng;
                 antall++;
             }
 
             current = current.neste;
         }
 
-        return trimTab(filmerMedDelstreng, antall);
+        return filmerMedDelstreng.toArray(new Film[antall]);
     }
 
     @Override
     public Film[] soekProdusent(String delstreng) {
-        Film[] filmerMedDelstreng = new Film[antall];
-        int antall = 0;
+        LinearNode<Film> filmerMedDelstreng = new LinearNode<>(null);
         LinearNode<Film> current = start;
+
+        int antall = 0;
 
         while (current != null) {
             String produsent = current.data.getFilmskaper().toLowerCase();
 
             if (produsent.contains(delstreng.toLowerCase())) {
-                filmerMedDelstreng[antall] = current.data;
+                LinearNode<Film> newNode = new LinearNode<>(current.data);
+                newNode.neste = filmerMedDelstreng;
                 antall++;
             }
 
             current = current.neste;
         }
 
-        return trimTab(filmerMedDelstreng, antall);
+        return filmerMedDelstreng.toArray(new Film[antall]);
     }
 
     @Override
@@ -115,17 +119,5 @@ public class Filmarkiv2 implements FilmarkivADT {
     @Override
     public int antall() {
         return antall;
-    }
-
-    private Film[] trimTab(Film[] tab, int n) {
-        Film[] nytab = new Film[n];
-        int i = 0;
-
-        while (i < n) {
-            nytab[i] = tab[i];
-            i++;
-        }
-
-        return nytab;
     }
 }
